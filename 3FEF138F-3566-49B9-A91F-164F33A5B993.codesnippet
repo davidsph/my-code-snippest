@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>ddd|dealloc</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//dealloc方法
+-(void) dealloc{
+    //释放对象
+    [&lt;#someobject#&gt; release ];
+    
+    
+    //调用父类dealloc方法
+    [super dealloc];
+};
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3FEF138F-3566-49B9-A91F-164F33A5B993</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>快捷dealloc方法-&gt;dealloc</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>自定义快捷dealloc</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

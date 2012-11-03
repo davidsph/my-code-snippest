@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>tableview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark TableViewDataSource
+//设置每个分组的行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;{
+    NSLog(@"function %s line=%d",__FUNCTION__,__LINE__);
+    
+    return 14;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;{
+    NSLog(@"function %s line=%d",__FUNCTION__,__LINE__);
+    //重用机制
+    static NSString *cellIdentity=@"cell";
+    
+    UITableViewCell *cell=[self.tableview dequeueReusableCellWithIdentifier:cellIdentity];
+    if (cell==nil) {
+        NSLog(@"新建一个cell");
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:cellIdentity];
+    }
+    //具体定制每个列表项
+    cell.textLabel.text=[NSString stringWithFormat:@"我是第%d个数据",indexPath.row];  
+    cell.accessoryType=UITableViewCellAccessoryDetailDisclosureButton;
+    return cell;
+    
+}
+
+//以上两个方法是必须的
+
+//设置每个分组的标题
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSLog(@"function %s line=%d",__FUNCTION__,__LINE__);
+    NSString *string=[NSString stringWithFormat:@"第%d行",section];
+    return  string;
+    
+}
+
+//返回有几个分区，每个分区包含之前设置的行数
+- (NSInteger ) numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    NSLog(@"function %s line=%d",__FUNCTION__,__LINE__);
+    return 1;
+}
+
+#pragma mark -
+#pragma mark TableViewDelegate
+
+//选择列表项时，需要的进行的操作
+- (void) tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    //    
+    DetailConreoller *controller=[[DetailConreoller alloc] init];
+    //    controller.tmpLabel=[tableView1 cellForRowAtIndexPath:indexPath].textLabel;
+    
+    controller.laa=[tableView1 cellForRowAtIndexPath:indexPath].textLabel;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D69BB032-FB8D-4167-A2E2-8F267B893DA7</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>快捷 tableview的代理和数据源-&gt;tableview</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>tableView 数据源和代理</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
